@@ -29,7 +29,7 @@ def get_empty_field():
 ]
 
 def is_alive(field, neighbor_x, neighbor_y):
-    return 0 <= neighbor_x < MAX_SIZE and 0 <= neighbor_y < MAX_SIZE and field[neighbor_x, neighbor_y] == LIVE_CELL
+    return 0 <= neighbor_x < MAX_SIZE and 0 <= neighbor_y < MAX_SIZE and field[neighbor_x][neighbor_y] == LIVE_CELL
 
 # Generation
 field = [
@@ -43,7 +43,7 @@ while True:
     buffer = get_empty_field()
     for y in range(MAX_SIZE):
         for x in range(MAX_SIZE):
-            с = field[y][x]
+            c = field[y][x]
             neighbors = 0
             for neighbor_x, neighbor_y in neighbor_xy(x, y):
                     neighbors += 1 if is_alive(field,neighbor_x, neighbor_y) else 0
