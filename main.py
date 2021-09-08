@@ -3,7 +3,7 @@ from random import choice
 # Size of our field
 MAX_SIZE = 10
 
-DEAD_CELL = " "
+DEAD_CELL = "  "
 LIVE_CELL = "*"
 
 def neighbor_xy(x, y):
@@ -38,7 +38,7 @@ field = [
 
 # Pause for next move
 while True:
-    input('press any key for next step')
+    input('press any key for next step ')
     show_field(field)
     buffer = get_empty_field()
     for y in range(MAX_SIZE):
