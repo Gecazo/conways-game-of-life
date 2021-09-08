@@ -28,7 +28,7 @@ def get_empty_field():
     [DEAD_CELL for x in range(MAX_SIZE)] for y in range(MAX_SIZE)
 ]
 
-def if_alive(field, neighbor_x, neighbor_y):
+def is_alive(field, neighbor_x, neighbor_y):
     return 0 <= neighbor_x < MAX_SIZE and 0 <= neighbor_y < MAX_SIZE and field[neighbor_x, neighbor_y] == LIVE_CELL
 
 # Generation
@@ -51,3 +51,10 @@ while True:
                 buffer[y][x] = LIVE_CELL if neighbors == 3 else DEAD_CELL
             else:
                 buffer[y][x] = LIVE_CELL if neighbors in (2,3) else DEAD_CELL
+    
+    #test
+    if field == buffer:
+        print('stasis')
+        break
+
+    field = buffer
