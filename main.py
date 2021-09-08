@@ -45,8 +45,9 @@ while True:
         for x in range(MAX_SIZE):
             с = field[y][x]
             neighbors = 0
-            if c == DEAD_CELL:
-                for neighbor_x, neighbor_y in neighbor_xy(x, y):
+            for neighbor_x, neighbor_y in neighbor_xy(x, y):
                     neighbors += 1 if is_alive(field,neighbor_x, neighbor_y) else 0
+            if c == DEAD_CELL:
+                buffer[y][x] = LIVE_CELL if neighbors == 3 else DEAD_CELL
             else:
-                pass
+                buffer[y][x] = LIVE_CELL if neighbors in (2,3) else DEAD_CELL
