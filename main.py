@@ -6,6 +6,19 @@ MAX_SIZE = 10
 DEAD_CELL = " "
 LIVE_CELL = "*"
 
+def neighbor_xy(x, y):
+    for dx, dy in (
+        (0, 1),
+        (1, 1),
+        (1, 0),
+        (1, -1),
+        (0, -1),
+        (-1, -1),
+        (-1, 0),
+        (-1, 1)
+    ):
+        yield x + dx, y + dy
+
 def show_field(field):
     for y in range(MAX_SIZE):
         print(''.join(field[y]))
@@ -14,6 +27,9 @@ def get_empty_field():
     return [
     [DEAD_CELL for x in range(MAX_SIZE)] for y in range(MAX_SIZE)
 ]
+
+def if_alive(field, neighbor_x, neighbor_y):
+    pass
 
 # Generation
 field = [
@@ -28,7 +44,9 @@ while True:
     for y in range(MAX_SIZE):
         for x in range(MAX_SIZE):
             с = field[y][x]
+            neighbors = 0
             if c == DEAD_CELL:
-                pass
+                for neighbor_x, neighbor_y in neighbor_xy(x, y):
+                    neighbors += 1 if is_alive(field,neighbor_x, neighbor_y) else 0
             else:
                 pass
