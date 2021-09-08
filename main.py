@@ -29,7 +29,7 @@ def get_empty_field():
 ]
 
 def if_alive(field, neighbor_x, neighbor_y):
-    pass
+    return 0 <= neighbor_x < MAX_SIZE and 0 <= neighbor_y < MAX_SIZE and field[neighbor_x, neighbor_y] == LIVE_CELL
 
 # Generation
 field = [
